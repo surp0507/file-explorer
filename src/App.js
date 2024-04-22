@@ -3,6 +3,7 @@ import Folder from "./components/Folder";
 import "./styles.css";
 import { useSelector, useDispatch } from 'react-redux';
 import SearchFile from "./components/SearchFile";
+import explorer from "./data/folderData";
 import { setExplorerData, insertNode, deleteNode, renameNode, searchFiles } from './redux/explorerSlice';
 
 export default function App() {
@@ -11,8 +12,9 @@ export default function App() {
   const dispatch = useDispatch();
 
 
+
   useEffect(() => {
-    dispatch(setExplorerData(explorerData))
+    dispatch(setExplorerData(explorer))
   }, [searchValue])
 
 
@@ -33,6 +35,7 @@ export default function App() {
   };
 
   const handleSearch = (e) => {
+
     setSearchValue(e.target.value)
   };
 
